@@ -1,0 +1,77 @@
+Metadata-Version: 1.2
+Name: cdk-minecraft
+Version: 0.0.1
+Summary: An empty CDK Python app
+Home-page: UNKNOWN
+Author: author
+Author-email: UNKNOWN
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: # Features
+        ## Dynamic DNS
+        Update Route53 with public IP.  Avoiding use of elastic IP's for a frequently powered down system eliminates charges for an allocated but unused elastic IP.
+        ## Dynamic JVM Memory
+        If you change the instance type, the JVM memory settings will automatically be updated to match the instance available memory.
+        ## Automatic Idle Shutdown
+        A custom metric logs the number of logged in players (and max players).  A cloudwatch metric & alarm will power down the instance when nobody is logged in.
+        ## Paper Updater
+        Get the latest version of paper minecraft server, and create tags to mark the current version.  Minecraft target version can be updated via tags, without logging into the server.
+        ## Minecraft World Backup
+        Backup the minecraft world to S3, and automatically restore from S3 if a backup exists on new server creation.
+        ## Startup via special URL
+        Save a bookmark or set up your alexa to start the server on demand (more details below)
+        
+        # TODO
+        * Spot Instance usage
+        
+        # Adjustable settings
+        In cdk.json you can change the following (WIP)
+        
+        ## InstanceType
+        What kind of server are we running minecraft on.  T type instances are good for testing, but won't handle many players once you run out of CPU credits.
+        
+        ## sshKeyName
+        What key to use for connecting with SSH.  This CDK requires you to make one first, found here: https://console.aws.amazon.com/ec2/v2/home#KeyPairs:
+        
+        ## region
+        What region to deploy minecraft to.  Default: us-east-1
+        
+        ## MyIPAddress
+        If you want to allow SSH from home, put in your home IP address here (CIDR block format, 123.123.123.123/24)
+        
+        ## useSpot
+        Do you want to use spot instances to reduce cost?  **Not Yet Implemented**
+        
+        ## useEc2InstanceConnect
+        Boolean.  Do you want to allow connecting from EC2 Instance Connect (in browser shell)
+        
+        ## tags
+        These things get added as tags, but the defined ones also have some effect on the way the server behaves.  You can add other arbetrary tags to this block if desired.
+        
+        ### dns_hostname
+        if you want DNS update script to update your IP, set the target hostname here.  Combines with hosted_zone to form your FQDN.
+        
+        ### dns_hosted_zone
+        if you want DNS update script to update your IP, set the hosted zone here.  This needs to already be configured in Route53.
+        
+        ### minecraft_game_mode
+        Game mode to set in the server properties, survival / creative / adventure **Not Yet Implemented**
+        
+        ### reserved_memory
+        This much memory will be reserved from going into the minecraft JVM.  If your instance has 2048M of ram and this is set to 512M, XMX setting in java will be 1536M
+        
+        # S3 Buckets
+        The s3 stack creates 1 or 2 buckets depending on your settings.  File resources (Minecraft server jar, paper jar, plugins and mods) that can change (new releases) outside changes to this code belong in the file bucket.  If you're backing up your world to S3, then there is a different bucket for that.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.6

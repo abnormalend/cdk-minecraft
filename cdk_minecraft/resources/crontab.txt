@@ -1,0 +1,1 @@
+@reboot minecraft /opt/resources/paper_updater.py
