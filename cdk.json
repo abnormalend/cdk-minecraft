@@ -9,7 +9,7 @@
     "@aws-cdk/aws-kms:defaultKeyPolicies": true,
     "@aws-cdk/aws-s3:grantWriteWithoutAcl": true,
     "InstanceType": "t3a.small",
-    "sshKeyName": False,
+    "sshKeyName": false,
     "region": "us-east-1",
     "awsAccount": "YOUR_ACCOUNT_NUMBER_HERE",
     "myIpAddress": false,
