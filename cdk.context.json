@@ -1,0 +1,11 @@
+{
+  "availability-zones:account=623431688854:region=us-east-2": [
+    "us-east-2a",
+    "us-east-2b",
+    "us-east-2c"
+  ],
+  "hosted-zone:account=623431688854:domainName=minecloud.xyz.:region=us-east-2": {
+    "Id": "/hostedzone/Z2PZS7TZY0DFCI",
+    "Name": "minecloud.xyz."
+  }
+}
