@@ -1,0 +1,33 @@
+{
+  "app": "python3 app.py",
+  "context": {
+    "@aws-cdk/core:enableStackNameDuplicates": "true",
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:stackRelativeExports": "true",
+    "@aws-cdk/aws-ecr-assets:dockerIgnoreSupport": true,
+    "@aws-cdk/aws-secretsmanager:parseOwnedSecretName": true,
+    "@aws-cdk/aws-kms:defaultKeyPolicies": true,
+    "@aws-cdk/aws-s3:grantWriteWithoutAcl": true,
+    "InstanceType": "t3a.small",
+    "sshKeyName": False,
+    "region": "us-east-1",
+    "awsAccount": "YOUR_ACCOUNT_NUMBER_HERE",
+    "myIpAddress": false,
+    "useEc2InstanceConnect": true,
+    "shutdownWhenIdle": false,
+    "shutdownWhenIdleMinimumPlayers": 1,
+    "shutdownWhenIdleMinutes": 15,
+    "enableStartupUrl": false,
+    "startupPassword": false,
+    "enableBudget": false,
+    "budgetLimit": 1.00,
+    "budgetAlertEmail": "YOUR_EMAIL_HERE_IF_USING_BUDGET",
+    "tags": {
+      "dns_hostname": "minecraft",
+      "dns_zone": "yourdomain.here.",
+      "mc_game_mode": "survival",
+      "reserved_memory": "700",
+      "MINECRAFT_HOME": "/opt/minecraft"
+    }
+  }
+}
